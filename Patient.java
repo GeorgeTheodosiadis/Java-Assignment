@@ -1,10 +1,8 @@
 import java.util.ArrayList;
 
 public class Patient {
-	private String firstName, lastName;
-	private String gender, region, email;
-	private int age, phoneNumber;
-	private int covidTestDay, covidTestMonth, covidTestYear;
+	private String firstName, lastName, gender, region, email;
+	private int age, phoneNumber, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
 	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
 	
