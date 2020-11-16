@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Patient {
-	private String firstName, lastName, gender, region, email;
-	private int age, phoneNumber, covidTestDay, covidTestMonth, covidTestYear;
+	private String firstName, lastName, gender, region, email, phoneNumber;
+	private int age, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
 	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
 	
 	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
-		       int phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
+		       String phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -70,11 +70,11 @@ public class Patient {
 		this.age = age;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
