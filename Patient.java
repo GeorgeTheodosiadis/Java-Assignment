@@ -1,5 +1,3 @@
-package Covid19_ergasia_ejamhnou;
-
 import java.util.ArrayList;
 
 public class Patient {
@@ -8,21 +6,22 @@ public class Patient {
 	private int age, phoneNumber;
 	private int covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
-	public static ArrayList<Patient> myPatient=new ArrayList<Patient>();
+	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
 	
-	public Patient(String fN,String lN,String gen,String reg,String em,int age,int pN,int cTD,int cTM,int cTY,boolean inf) {
+	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
+		       int phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
-		this.firstName=fN;
-		this.lastName=lN;
-		this.gender=gen;
-		this.region=reg;
-		this.email=em;
-		this.age=age;
-		this.phoneNumber=pN;
-		this.covidTestDay=cTD;
-		this.covidTestMonth=cTM;
-		this.covidTestYear=cTY;
-		this.infected=inf;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.region = region;
+		this.email = email;
+		this.age = age;
+		this.phoneNumber = phoneNumber;
+		this.covidTestDay = covidTestDay;
+		this.covidTestMonth = covidTestMonth;
+		this.covidTestYear = covidTestYear;
+		this.infected = infected;
 	}
 
 	public String getFirstName() {
