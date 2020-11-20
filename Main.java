@@ -7,7 +7,6 @@ public class Main {
 		
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
-		
 		while (flag == "ΝΑΙ") {
 			System.out.println("(1)ÅìöÜíéóç åã÷åéñéäßïõ ÷ñÞóçò");
 			System.out.println("(2)ÐñïóèÞêç åîåôáæïìÝíïõ");
