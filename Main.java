@@ -7,7 +7,7 @@ public class Main {
 		
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
-		while (flag == "ΝΑΙ") {
+		while (flag.equalsIgnoreCase("ΝΑΙ")) {
 			System.out.println("(1)ÅìöÜíéóç åã÷åéñéäßïõ ÷ñÞóçò");
 			System.out.println("(2)ÐñïóèÞêç åîåôáæïìÝíïõ");
 			System.out.println("(3)ÅìöÜíéóç ëßóôáò áôüìùí");
@@ -57,7 +57,7 @@ public class Main {
 				if (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ"))) {
 					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
 				}
-			} while (flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ"));
+			} while (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ")));
 		}
 		
 	}
