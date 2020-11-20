@@ -1,5 +1,5 @@
 import java.util.InputMismatchException;
-import java.util.scanner;
+import java.util.Scanner;
 
 public class Main {
 	
@@ -30,7 +30,7 @@ public class Main {
 				System.out.println("(8)ÓôáôéóôéêÜ áíÜ ÇëéêéáêÞ ÏìÜäá");
 				int y = intException();
 				if (y == 1) {
-					Statistics.casesPerRegion(String myRegion);
+					Statistics.casesPerRegion();
 				} else if (y == 2) {
 					Statistics.casesPerDay();
 				} else if (y == 3) {
@@ -46,10 +46,10 @@ public class Main {
 				} else if (y == 8) {
 					Statistics.casesPerAge();
 				} else {
-					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά."\n);
+					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
 				}
 			} else {
-				System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά."\n);
+				System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
 			}
 			do {
 				System.out.print("Επιθυμείτε να συνεχίσετε τη χρήση της εφαρμογής (ΝΑΙ ή ΟΧΙ): ");
@@ -57,7 +57,7 @@ public class Main {
 				if (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ"))) {
 					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
 				}
-			}
+			} while (flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ"));
 		}
 		
 	}
