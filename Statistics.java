@@ -29,40 +29,49 @@ public class Statistics {
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
 			if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΗΠΕΙΡΟΣ")) {
 				regions[0]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[0]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΘΕΣΣΑΛΙΑ")) {
 				regions[1]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[1]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΘΡΑΚΗ")) {
 				regions[2]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[2]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΚΡΗΤΗ")) {
 				regions[3]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[3]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΜΑΚΕΔΟΝΙΑ")) {
 				regions[4]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[4]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΝΗΣΟΙ ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ")) {
 				regions[5]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[5]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΝΗΣΟΙ ΙΟΝΙΟΥ ΠΕΛΑΓΟΥΣ")) {
 				regions[6]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[6]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΠΕΛΟΠΟΝΝΗΣΟΣ")) {
 				regions[7]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[7]++;
+				}
 			} else if (Patient.myPatient.get(i).getRegion().equalsIgnoreCase("ΣΤΕΡΕΑ ΕΛΛΑΔΑ")) {
 				regions[8]++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positives[8]++;
+				}
 			}
 		}
 		int count = 0;
@@ -150,8 +159,9 @@ public class Statistics {
 			Patient.myPatient.get(i).getCovidTestMonth() == myCovidTestMonth &&
 			Patient.myPatient.get(i).getCovidTestYear() == myCovidTestYear) {
 				count++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					countPositives++;
+				}
 			}
 		}
 		if (count != 0) {
@@ -188,8 +198,9 @@ public class Statistics {
 			if (Patient.myPatient.get(i).getCovidTestMonth() == myCovidTestMonth &&
 			Patient.myPatient.get(i).getCovidTestYear() == myCovidTestYear) {
 				count++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					countPositives++;
+				}
 			}
 		}
 		if (count != 0) {
@@ -223,8 +234,9 @@ public class Statistics {
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
 			if (Patient.myPatient.get(i).getCovidTestYear() == myCovidTestYear) {
 				count++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					countPositives++;
+				}
 			}
 		}
 		if (count !=0 ) {
@@ -255,12 +267,14 @@ public class Statistics {
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
 			if (Patient.myPatient.get(i).getGender().equalsIgnoreCase("ΑΝTΡΑΣ")) {
 				countMale++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positiveMale++;
+				}
 			} else {
 				countFemale++;
-				if (Patient.myPatient.get(i).isInfected() == true)
+				if (Patient.myPatient.get(i).isInfected() == true) {
 					positiveFemale++;
+				}
 			}
 		}
 		if (countMale != 0 && countFemale != 0) {
@@ -357,24 +371,29 @@ public class Statistics {
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
 			if (Patient.myPatient.get(i).getAge() > 0 && Patient.myPatient.get(i).getAge() <= 20) {
 				cases[0]++;
-				if (Patient.myPatient.get(i).isInfected() == true )
+				if (Patient.myPatient.get(i).isInfected() == true ) {
 					positiveCases[0]++;
+				}
 			} else if (Patient.myPatient.get(i).getAge() > 20 && Patient.myPatient.get(i).getAge() <= 40) {
 				cases[1]++;
-				if (Patient.myPatient.get(i).isInfected() == true )
+				if (Patient.myPatient.get(i).isInfected() == true ) {
 					positiveCases[1]++;
+				}
 			} else if (Patient.myPatient.get(i).getAge() > 40 && Patient.myPatient.get(i).getAge() <= 60) {
 				cases[2]++;
-				if (Patient.myPatient.get(i).isInfected() == true )
+				if (Patient.myPatient.get(i).isInfected() == true ) {
 					positiveCases[2]++;
+				}
 			} else if (Patient.myPatient.get(i).getAge() > 60 && Patient.myPatient.get(i).getAge() <= 80) {
 				cases[3]++;
-				if (Patient.myPatient.get(i).isInfected() == true )
+				if (Patient.myPatient.get(i).isInfected() == true ) {
 					positiveCases[3]++;
+				}
 			} else {
 				cases[4]++;
-				if (Patient.myPatient.get(i).isInfected() == true )
+				if (Patient.myPatient.get(i).isInfected() == true ) {
 					positiveCases[4]++;
+				}
 			}
 		}
 		int positiveSum = positiveCases[0] + positiveCases[1] + positiveCases[2] + positiveCases[3] + positiveCases[4];
