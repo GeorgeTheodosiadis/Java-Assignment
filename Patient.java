@@ -1,11 +1,23 @@
 import java.util.ArrayList;
-
+/**
+ * This class is used to track the Patients that are tested for Covid-19
+ * and insert their firstName, lastName, gender, region, email, age,
+ * phoneNumber, covidTestDay, covidTestMonth, covidTestYear and 
+ * if they are infected or not to our Database Arraylist System.
+ * 
+ * @author George Theodosiadis
+ *
+ */
 public class Patient {
 	private String firstName, lastName, gender, region, email, phoneNumber;
 	private int age, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
 	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
-	
+/**
+ * 
+ * This is the Constructor method of the class
+ * 
+ */
 	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
 		       String phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
@@ -21,7 +33,11 @@ public class Patient {
 		this.covidTestYear = covidTestYear;
 		this.infected = infected;
 	}
-
+/**
+ * 
+ * These are the setters and getters of the main variables
+ * 
+ */
 	public String getFirstName() {
 		return firstName;
 	}
