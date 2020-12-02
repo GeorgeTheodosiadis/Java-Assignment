@@ -11,30 +11,29 @@ import java.util.Scanner;
  *
  */
 public class Patient {
-	private String firstName, lastName;
-	private String gender, region, email;
-	private int age, phoneNumber;
-	private int covidTestDay, covidTestMonth, covidTestYear;
+	private String firstName, lastName, gender, region, email, phoneNumber;
+	private int age, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
-	public static ArrayList<Patient> myPatient=new ArrayList<Patient>();
+	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
 /**
  * 
  * This is the Constructor method of the class
  * 
  */
-	public Patient(String fN,String lN,String gen,String reg,String em,int age,int pN,int cTD,int cTM,int cTY,boolean inf) {
+	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
+		       String phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
-		this.firstName=fN;
-		this.lastName=lN;
-		this.gender=gen;
-		this.region=reg;
-		this.email=em;
-		this.age=age;
-		this.phoneNumber=pN;
-		this.covidTestDay=cTD;
-		this.covidTestMonth=cTM;
-		this.covidTestYear=cTY;
-		this.infected=inf;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.region = region;
+		this.email = email;
+		this.age = age;
+		this.phoneNumber = phoneNumber;
+		this.covidTestDay = covidTestDay;
+		this.covidTestMonth = covidTestMonth;
+		this.covidTestYear = covidTestYear;
+		this.infected = infected;
 	}
 
 	public void addPatient() {
