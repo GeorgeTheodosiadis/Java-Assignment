@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 /**
  * This class is used to track the Patients that are tested for Covid-19
  * and insert their firstName, lastName, gender, region, email, age,
@@ -8,18 +9,13 @@ import java.util.Scanner;
  * if they are infected or not to our Database Arraylist System.
  * 
  * @author George Theodosiadis
- *
  */
 public class Patient {
 	private String firstName, lastName, gender, region, email, phoneNumber;
 	private int age, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
 	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
-/**
- * 
- * This is the Constructor method of the class
- * 
- */
+	
 	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
 		       String phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
@@ -36,78 +32,10 @@ public class Patient {
 		this.infected = infected;
 	}
 
-	public void addPatient() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Εισάγετε το όνομά σας");
-		String firstName =  sc.next();
-		System.out.println("Εισάγετε το επίθετό σας");
-		String lastName = sc.next();
-		System.out.println("Εισάγετε το φύλο σας: άνδρας/γυναίκα");
-		String gender = sc.next();
-		System.out.println("Εισάγετε την περιοχή σας");
-		String region = sc.next();
-		System.out.println("Εισάγετε το email σας");
-		String email = sc.next();
-		int age = 0;
-		while (age <= 0 ) {
-			try {
-				System.out.println("Εισάγετε την ηλικία σας");
-				age = sc.nextInt();
-			}
-			catch (InputMismatchException e) {
-				System.out.println("Μη έγκυρη τιμή");
-			}
-		}
-		System.out.println("Εισάγετε το τηλέφωνό σας");
-		int phoneNumber = sc.nextInt();
-		System.out.println("Εισάγετε την ημερομηνία");
-		int covidTestDay = 0;
-		while (covidTestDay <= 0 && covidTestDay > 31 ) {
-			try {
-				System.out.println("Μέρα:");
-				covidTestDay = sc.nextInt();
-			}
-			catch (InputMismatchException e) {
-				System.out.println("Μη έγκυρη τιμή");
-			}
-		}
-		
-		int covidTestMonth = 0;
-		while (covidTestMonth <= 0 && covidTestMonth > 12 ) {
-			try {
-				System.out.println("Μήνας:");
-				covidTestMonth = sc.nextInt();
-			}
-			catch (InputMismatchException e) {
-				System.out.println("Μη έγκυρη τιμή");
-			}
-		}
-		int covidTestYear = 0;
-		while (covidTestYear <=0 ) {
-			try {
-				System.out.println("Έτος:");
-				age = sc.nextInt();
-			}
-			catch (InputMismatchException e) {
-				System.out.println("Μη έγκυρη τιμή");
-			}
-		}
-		
-		System.out.println("Εισάγετε το αποτέλεσμα του test: θετικό/αρνητικό");
-		String apantisi = sc.next();
-		boolean infected;
-		if (apantisi.equals("θετικό")) {
-			infected = true;
-		} else {
-			infected = false;
-		}
-		Patient Patient = new Patient(firstName, lastName, gender, region, email, age, phoneNumber, covidTestDay, covidTestMonth, covidTestYear, infected);
-	}
-/**
- * 
- * These are the setters and getters of the main variables
- * 
- */
+	/**
+	 * These are the setters and getters of the main variables
+	 */
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -156,11 +84,11 @@ public class Patient {
 		this.age = age;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -194,6 +122,112 @@ public class Patient {
 
 	public void setInfected(boolean infected) {
 		this.infected = infected;
+	}
+	
+	/**
+	 * This method adds new Patients to our ArrayList.
+	 */
+	public static void addPatient() {
+		
+		String firstName, lastName, gender, region, email, phoneNumber, infectedMes;
+		int age, covidTestDay, covidTestMonth, covidTestYear;
+		boolean infected, flag1 = false, flag2 = false;
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.print("Προσθέστε Όνομα: ");
+		firstName = in.nextLine();
+		System.out.print("Προσθέστε Επίθετο: ");
+		lastName = in.nextLine();
+		gender = "";
+		while (flag1 == false) {
+			System.out.print("Προσθέστε Φύλλο (Άντρας/Γυναίκα): ");
+			gender = in.nextLine();
+			if (gender.equalsIgnoreCase("ΑΝΤΡΑΣ") || gender.equalsIgnoreCase("ΓΥΝΑΙΚΑ")) {
+				flag1 = true;
+			} else {
+				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
+			}
+		}
+		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ηλικία: ");
+		age = intException(); 
+		region = inputRegion(in);
+		System.out.print("Προσθέστε e-mail Επικοινωνίας: ");
+		email = in.nextLine();
+		System.out.print("Προσθέστε Τηλέφωνο Επικοινωνίας: ");
+		phoneNumber = in.nextLine();
+		infected = true;
+		while (flag2 == false) {
+			System.out.print("Αποτέλεσμα Τεστ COVID-19 (Θετικό/Αρνητικό): ");
+			infectedMes = in.nextLine();
+			if (infectedMes.equalsIgnoreCase("ΘΕΤΙΚΟ") || infectedMes.equalsIgnoreCase("ΑΡΝΗΤΙΚΟ")) {
+				flag2 = true;
+				if (infectedMes.equalsIgnoreCase("ΘΕΤΙΚΟ")) {
+					infected = true;
+				} else {
+					infected = false;
+				}
+			} else {
+				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
+			}
+		}
+		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ημέρα Διενέργιας Τεστ: ");
+		covidTestDay = intException();
+		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Μήνα Διενέργιας Τεστ: ");
+		covidTestMonth = intException();
+		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Έτος Διενέργιας Τεστ: ");
+		covidTestYear = intException();
+		System.out.println("\n*** Επιτυχής Καταχώρηση Στοιχείων ***\n");
+		
+		new Patient(firstName, lastName, gender, region, email, age, phoneNumber, covidTestDay,
+				covidTestMonth, covidTestYear, infected);
+
+	}
+	
+	public static String inputRegion(Scanner in) {
+
+		boolean flag = false;
+		String myRegion = "";
+		while (flag == false) {
+			System.out.println("Γεωγραφικά Διαμερίσματα Ελλάδας:\n"
+					+ "ΗΠΕΙΡΟΣ - ΘΕΣΣΑΛΙΑ - ΘΡΑΚΗ - ΚΡΗΤΗ\n"
+					+ "ΜΑΚΕΔΟΝΙΑ - ΝΗΣΟΙ ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ - ΝΗΣΟΙ ΙΟΝΙΟΥ ΠΕΛΑΓΟΥΣ\n"
+					+ "ΠΕΛΟΠΟΝΝΗΣΟΣ - ΣΤΕΡΕΑ ΕΛΛΑΔΑ");
+			System.out.print("Εισάγετε Γεωγραφικό Διαμέρισμα: ");
+			myRegion = in.nextLine();
+			if (!(myRegion.equalsIgnoreCase("ΗΠΕΙΡΟΣ") && myRegion.equalsIgnoreCase("ΘΕΣΣΑΛΙΑ") ||
+					myRegion.equalsIgnoreCase("ΘΡΑΚΗ") && myRegion.equalsIgnoreCase("ΚΡΗΤΗ") ||
+					myRegion.equalsIgnoreCase("ΜΑΚΕΔΟΝΙΑ") && myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ") ||
+					myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΙΟΝΙΟΥ ΠΕΛΑΓΟΥΣ") && myRegion.equalsIgnoreCase("ΠΕΛΟΠΟΝΝΗΣΟΣ") ||
+					myRegion.equalsIgnoreCase("ΣΤΕΡΕΑ ΕΛΛΑΔΑ"))) {
+				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
+			} else {
+				flag = true;
+			}
+		}
+		return myRegion;
+		
+	}
+	
+	/**
+	 * This method is used to catch an Input Mismatch Exception.
+	 */
+	public static int intException() {
+		
+		Scanner sc = new Scanner(System.in);
+		boolean action = false;
+		int x = 0;
+		do {
+			try {
+				x = sc.nextInt();
+				action = true;
+			} catch (InputMismatchException inputMismatchException) {
+				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά αριθμητικό χαρακτήρα.");
+				sc.nextLine();
+			}
+		} while (action == false);
+		return x;
+		
 	}
 	
 }
