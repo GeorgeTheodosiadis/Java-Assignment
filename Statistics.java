@@ -8,7 +8,6 @@ import java.util.Scanner;
  * how many are the cases per gender (male or female), how many are the positive and
  * negative cases and how many are the cases per age.
  *
- * @version 1.0 1 Nov 2020
  * @author  Dimitris Grigoratos
  */
 public class Statistics {
@@ -146,11 +145,11 @@ public class Statistics {
 	public static void casesPerDay() {
 		
 		int myCovidTestDay, myCovidTestMonth, myCovidTestYear;
-		System.out.println("Εισάγετε Ημέρα για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Ημέρα για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestDay = intException();
-		System.out.println("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestMonth = intException();
-		System.out.println("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestYear = intException();
 		int count = 0;
 		int countPositives = 0;
@@ -188,9 +187,9 @@ public class Statistics {
 	public static void casesPerMonth() {
 	
 		int myCovidTestMonth, myCovidTestYear;
-		System.out.println("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestMonth = intException();
-		System.out.println("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestYear = intException();
 		int count = 0;
 		int countPositives = 0;
@@ -227,7 +226,7 @@ public class Statistics {
 	public static void casesPerYear() {
 		
 		int myCovidTestYear;
-		System.out.println("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων");
+		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
 		myCovidTestYear = intException();
 		int count = 0;
 		int countPositives = 0;
