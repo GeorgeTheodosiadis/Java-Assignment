@@ -8,7 +8,7 @@ public class Main {
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
 		while (flag.equalsIgnoreCase("ΝΑΙ")) {
-			System.out.println("(1)Εμφάνιση εγχειρίδιου χρήσης");
+			System.out.println("(1)Εμφάνιση εγχειριδίου χρήσης");
 			System.out.println("(2)Προσθήκη εξεταζόμενου");
 			System.out.println("(3)Εμφάνιση Λίστας Ατόμων");
 			System.out.println("(4)Εμφάνιση Στατιστικών");
