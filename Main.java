@@ -8,10 +8,10 @@ public class Main {
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
 		while (flag.equalsIgnoreCase("ΝΑΙ")) {
-			System.out.println("(1)ÅìöÜíéóç åã÷åéñéäßïõ ÷ñÞóçò");
-			System.out.println("(2)ÐñïóèÞêç åîåôáæïìÝíïõ");
-			System.out.println("(3)ÅìöÜíéóç ëßóôáò áôüìùí");
-			System.out.println("(4)ÅìöÜíéóç óôáôéóôéêþí");
+			System.out.println("(1)Εμφάνιση εγχειρίδιου χρήσης");
+			System.out.println("(2)Προσθήκη εξεταζόμενου");
+			System.out.println("(3)Εμφάνιση Λίστας Ατόμων");
+			System.out.println("(4)Εμφάνιση Στατιστικών");
 			int x = intException();
 			if (x == 1) {
 				Information.information();
@@ -20,14 +20,14 @@ public class Main {
 			} else if (x == 3) {
 				Patient.printPatient();
 			} else if (x == 4) {
-				System.out.println("(1)ÓôáôéóôéêÜ áíÜ Ãåùãñáöéêü ÄéáìÝñéóìá");
-				System.out.println("(2)ÓôáôéóôéêÜ áíÜ ÇìÝñá ÅðéëïãÞò");
-				System.out.println("(3)ÓôáôéóôéêÜ áíÜ ÌÞíá ÅðéëïãÞò");
-				System.out.println("(4)ÓôáôéóôéêÜ áíÜ ¸ôïò ÅðéëïãÞò");
-				System.out.println("(5)Êñïýóìáôá Ìåôáîý Áíäñþí êáé Ãõíáéêþí");
-				System.out.println("(6)Ðïóïóôü Èåôéêþí ÊñïõóìÜôùí");
-				System.out.println("(7)Ðïóïóôü Áñíçôéêþí ÊñïõóìÜôùí");
-				System.out.println("(8)ÓôáôéóôéêÜ áíÜ ÇëéêéáêÞ ÏìÜäá");
+				System.out.println("(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα");
+				System.out.println("(2)Στατιστικά ανά Ημέρα Επιλογής");
+				System.out.println("(3)Στατιστικά ανά Μήνα Επιλογής");
+				System.out.println("(4)Στατιστικά ανά Έτος Επιλογής");
+				System.out.println("(5)Κρούσματα Μεταξύ Ανδρών και Γυναικών");
+				System.out.println("(6)Ποσοστό Θετικών Κρουσμάτων");
+				System.out.println("(7)Ποσοστό Αρνητικών Κρουσμάτων");
+				System.out.println("(8)Στατιστικά ανά Ηλικιακή Ομάδα");
 				int y = intException();
 				if (y == 1) {
 					Statistics.casesPerRegion();
