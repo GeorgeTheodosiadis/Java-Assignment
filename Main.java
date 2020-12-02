@@ -3,32 +3,35 @@ import java.util.Scanner;
 
 public class Main {
 	
-	public static void main(String args[]) {
+public static void main(String args[]) {
 		
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
 		while (flag.equalsIgnoreCase("ΝΑΙ")) {
-			System.out.println("(1)Εμφάνιση εγχειριδίου χρήσης");
-			System.out.println("(2)Προσθήκη εξεταζόμενου");
-			System.out.println("(3)Εμφάνιση Λίστας Ατόμων");
-			System.out.println("(4)Εμφάνιση Στατιστικών");
+			System.out.println("*** ΜΕΝΟΥ ΧΡΗΣΤΗ ***\n");
+			System.out.println( "(1) Εμφάνιση Eγχειριδίου Xρήσης\n"
+					+ "(2) Προσθήκη Eξεταζόμενου\n"
+					+ "(3) Εμφάνιση Λίστας Ατόμων\n"
+					+ "(4) Εμφάνιση Στατιστικών\n");
+			System.out.print("Εισάγετε επιλογή: ");
 			int x = intException();
+			System.out.println();
 			if (x == 1) {
-				Information.information();
 			} else if (x == 2) {
 				Patient.addPatient();
 			} else if (x == 3) {
-				Patient.printPatient();
 			} else if (x == 4) {
-				System.out.println("(1)Στατιστικά ανά Γεωγραφικό Διαμέρισμα");
-				System.out.println("(2)Στατιστικά ανά Ημέρα Επιλογής");
-				System.out.println("(3)Στατιστικά ανά Μήνα Επιλογής");
-				System.out.println("(4)Στατιστικά ανά Έτος Επιλογής");
-				System.out.println("(5)Κρούσματα Μεταξύ Ανδρών και Γυναικών");
-				System.out.println("(6)Ποσοστό Θετικών Κρουσμάτων");
-				System.out.println("(7)Ποσοστό Αρνητικών Κρουσμάτων");
-				System.out.println("(8)Στατιστικά ανά Ηλικιακή Ομάδα");
+				System.out.println( "(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα\n"
+						+ "(2) Στατιστικά ανά Ημέρα Επιλογής\n"
+						+ "(3) Στατιστικά ανά Μήνα Επιλογής\n"
+						+ "(4) Στατιστικά ανά Έτος Επιλογής\n"
+						+ "(5) Κρούσματα Μεταξύ Ανδρών και Γυναικών\n"
+						+ "(6) Ποσοστό Αρνητικών Κρουσμάτων\n"
+						+ "(7) Ποσοστό Αρνητικών Κρουσμάτων\n"
+						+ "(8) Στατιστικά ανά Ηλικιακή Ομάδα\n");
+				System.out.print("Εισάγετε επιλογή: ");
 				int y = intException();
+				System.out.println();
 				if (y == 1) {
 					Statistics.casesPerRegion();
 				} else if (y == 2) {
@@ -58,10 +61,12 @@ public class Main {
 					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
 				}
 			} while (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ")));
+			System.out.println();
 		}
+		System.out.println("Ευχαριστούμε που χρησιμοποιήσατε την πλατφόρμα μας.");
 		
 	}
-	
+
 	/**
 	 * This method is used to catch an Input Mismatch Exception.
 	 */
@@ -75,7 +80,7 @@ public class Main {
 				x = sc.nextInt();
 				action = true;
 			} catch (InputMismatchException inputMismatchException) {
-				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά αριθμητικό χαρακτήρα.");
+				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε αριθμητικό χαρακτήρα.");
 				sc.nextLine();
 			}
 		} while (action == false);
