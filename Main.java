@@ -20,7 +20,7 @@ public class Main {
 			} else if (x == 3) {
 				Patient.printPatient();
 			} else if (x == 4) {
-				System.out.println("(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα");
+				System.out.println("(1)Στατιστικά ανά Γεωγραφικό Διαμέρισμα");
 				System.out.println("(2)Στατιστικά ανά Ημέρα Επιλογής");
 				System.out.println("(3)Στατιστικά ανά Μήνα Επιλογής");
 				System.out.println("(4)Στατιστικά ανά Έτος Επιλογής");
