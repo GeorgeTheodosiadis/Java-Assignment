@@ -17,11 +17,11 @@ public static void main(String args[]) {
 			int x = intException();
 			System.out.println();
 			if (x == 1) {
-				System.out.println("Soon to be added.");
+				System.out.println("Soon to be added.\n");
 			} else if (x == 2) {
 				Patient.addPatient();
 			} else if (x == 3) {
-				System.out.println("Soon to be added.");
+				System.out.println("Soon to be added.\n");
 			} else if (x == 4) {
 				System.out.println( "(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα\n"
 						+ "(2) Στατιστικά ανά Ημέρα Επιλογής\n"
