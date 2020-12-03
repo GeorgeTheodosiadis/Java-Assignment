@@ -149,8 +149,14 @@ public class Patient {
 				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
 			}
 		}
-		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ηλικία: ");
-		age = intException(); 
+		age = 0;
+		while (age <= 0) {
+			System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ηλικία: ");
+			age = intException(); 
+			if (age <= 0) {
+				System.out.println("Λανθασμένη ηλικία. Εισάγετε ξανά.");
+			}
+		}
 		region = inputRegion(in);
 		System.out.print("Προσθέστε e-mail Επικοινωνίας: ");
 		email = in.nextLine();
@@ -171,12 +177,30 @@ public class Patient {
 				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
 			}
 		}
-		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ημέρα Διενέργιας Τεστ: ");
-		covidTestDay = intException();
-		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Μήνα Διενέργιας Τεστ: ");
-		covidTestMonth = intException();
-		System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Έτος Διενέργιας Τεστ: ");
-		covidTestYear = intException();
+		covidTestDay = 0;
+		while (covidTestDay <= 0 || covidTestDay > 31) {
+			System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ημέρα Διενέργιας Τεστ: ");
+			covidTestDay = intException();
+			if (covidTestDay <= 0 || covidTestDay > 31) {
+				System.out.println("Λανθασμένη καταχώρηση ημέρας. Εισάγετε ξανά.");
+			}
+		}
+		covidTestMonth = 0;
+		while (covidTestMonth <= 0 || covidTestMonth > 12) {
+			System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Μήνα Διενέργιας Τεστ: ");
+			covidTestMonth = intException();
+			if (covidTestMonth <= 0 || covidTestMonth > 12) {
+				System.out.println("Λανθασμένη καταχώρηση μήνα. Εισάγετε ξανά.");
+			}
+		}
+		covidTestYear = 0;
+		while (covidTestYear < 2019 || covidTestYear > 2025) {
+			System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα το Έτος Διενέργιας Τεστ: ");
+			covidTestYear = intException();
+			if (covidTestYear < 2019 || covidTestYear > 2025) {
+				System.out.println("Λανθασμένη καταχώρηση έτους. Εισάγετε ξανά (2019-2025).");
+			}
+		}
 		System.out.println("\n*** Επιτυχής Καταχώρηση Στοιχείων ***\n");
 		
 		new Patient(firstName, lastName, gender, region, email, age, phoneNumber, covidTestDay,
