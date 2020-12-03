@@ -145,12 +145,30 @@ public class Statistics {
 	public static void casesPerDay() {
 		
 		int myCovidTestDay, myCovidTestMonth, myCovidTestYear;
-		System.out.print("Εισάγετε Ημέρα για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestDay = intException();
-		System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestMonth = intException();
-		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestYear = intException();
+		myCovidTestDay = 0;
+		while (myCovidTestDay <= 0 || myCovidTestDay > 31) {
+			System.out.print("Εισάγετε Ημέρα για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestDay = intException();
+			if (myCovidTestDay <= 0 || myCovidTestDay > 31) {
+				System.out.println("Λανθασμένη καταχώρηση ημέρας. Εισάγετε ξανά.");
+			}
+		}
+		myCovidTestMonth = 0;
+		while (myCovidTestMonth <= 0 || myCovidTestMonth > 12) {
+			System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestMonth = intException();
+			if (myCovidTestMonth <= 0 || myCovidTestMonth > 12) {
+				System.out.println("Λανθασμένη καταχώρηση μήνα. Εισάγετε ξανά.");
+			}
+		}
+		myCovidTestYear = 0;
+		while (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+			System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestYear = intException();
+			if (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+				System.out.println("Λανθασμένη καταχώρηση έτους. Εισάγετε ξανά (2019-2025).");
+			}
+		}
 		int count = 0;
 		int countPositives = 0;
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
@@ -187,10 +205,22 @@ public class Statistics {
 	public static void casesPerMonth() {
 	
 		int myCovidTestMonth, myCovidTestYear;
-		System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestMonth = intException();
-		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestYear = intException();
+		myCovidTestMonth = 0;
+		while (myCovidTestMonth <= 0 || myCovidTestMonth > 12) {
+			System.out.print("Εισάγετε Μήνα για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestMonth = intException();
+			if (myCovidTestMonth <= 0 || myCovidTestMonth > 12) {
+				System.out.println("Λανθασμένη καταχώρηση μήνα. Εισάγετε ξανά.");
+			}
+		}
+		myCovidTestYear = 0;
+		while (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+			System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestYear = intException();
+			if (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+				System.out.println("Λανθασμένη καταχώρηση έτους. Εισάγετε ξανά (2019-2025).");
+			}
+		}
 		int count = 0;
 		int countPositives = 0;
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
@@ -226,8 +256,14 @@ public class Statistics {
 	public static void casesPerYear() {
 		
 		int myCovidTestYear;
-		System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
-		myCovidTestYear = intException();
+		myCovidTestYear = 0;
+		while (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+			System.out.print("Εισάγετε Έτος για Εύρεση Αποτελεσμάτων: ");
+			myCovidTestYear = intException();
+			if (myCovidTestYear < 2019 || myCovidTestYear > 2025) {
+				System.out.println("Λανθασμένη καταχώρηση έτους. Εισάγετε ξανά (2019-2025).");
+			}
+		}
 		int count = 0;
 		int countPositives = 0;
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
