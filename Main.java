@@ -8,13 +8,23 @@ public static void main(String args[]) {
 		String flag = "ΝΑΙ";
 		Scanner in = new Scanner(System.in);
 		while (flag.equalsIgnoreCase("ΝΑΙ")) {
+			boolean check1 = false;
+			boolean check2 = false;
 			System.out.println("*** ΜΕΝΟΥ ΧΡΗΣΤΗ ***\n");
 			System.out.println( "(1) Εμφάνιση Eγχειριδίου Xρήσης\n"
 					+ "(2) Προσθήκη Eξεταζόμενου\n"
 					+ "(3) Εμφάνιση Λίστας Ατόμων\n"
 					+ "(4) Εμφάνιση Στατιστικών\n");
-			System.out.print("Εισάγετε επιλογή: ");
-			int x = intException();
+			int x = 0;
+			while (check1 == false) {
+				System.out.print("Εισάγετε επιλογή: ");
+				x = intException();
+				if (x == 1 || x == 2 || x == 3 || x == 4) {
+					check1 = true;
+				} else {
+					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
+				}
+			}
 			System.out.println();
 			if (x == 1) {
 				System.out.println("Soon to be added.\n");
@@ -31,8 +41,16 @@ public static void main(String args[]) {
 						+ "(6) Ποσοστό Αρνητικών Κρουσμάτων\n"
 						+ "(7) Ποσοστό Αρνητικών Κρουσμάτων\n"
 						+ "(8) Στατιστικά ανά Ηλικιακή Ομάδα\n");
-				System.out.print("Εισάγετε επιλογή: ");
-				int y = intException();
+				int y = 0;
+				while (check2 == false) {
+					System.out.print("Εισάγετε επιλογή: ");
+					y = intException();
+					if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5 || y == 6 || y == 7 || y == 8) {
+						check2 = true;
+					} else {
+						System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
+					}
+				}
 				System.out.println();
 				if (y == 1) {
 					Statistics.casesPerRegion();
@@ -50,22 +68,18 @@ public static void main(String args[]) {
 					Statistics.casesOfNegative();
 				} else if (y == 8) {
 					Statistics.casesPerAge();
-				} else {
-					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
 				}
-			} else {
-				System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
 			}
 			do {
 				System.out.print("Επιθυμείτε να συνεχίσετε τη χρήση της εφαρμογής (ΝΑΙ ή ΟΧΙ): ");
 				flag = in.nextLine();
 				if (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ"))) {
-					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.");
+					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
 				}
 			} while (!(flag.equalsIgnoreCase("ΝΑΙ") || flag.equalsIgnoreCase("ΟΧΙ")));
 			System.out.println();
 		}
-		System.out.println("Ευχαριστούμε που χρησιμοποιήσατε την πλατφόρμα μας.");
+		System.out.print("Ευχαριστούμε που χρησιμοποιήσατε την πλατφόρμα μας.");
 		
 	}
 
