@@ -239,22 +239,25 @@ public class Patient {
 	 */
 	public static void printPatient() {
 		
-		System.out.println("*** ΛΙΣΤΑ ΕΞΕΤΑΖΟΜΕΝΩΝ ***\n");
-		for (int i = 0; i < Patient.myPatient.size(); i++) {
-			
-			String check = "";
-			if (Patient.myPatient.get(i).isInfected() == true) {
-				check = "ΘΕΤΙΚΟ";
-			} else {
-				check = "ΑΡΝΗΤΙΚΟ";
+		if (Patient.myPatient.size() == 0) {
+			System.out.println("Δεν έχουν καταγραφεί εξεταζόμενοι. Αδυναμία εύρεσης αποτελεσμάτων.\n");
+		} else {
+			System.out.println("*** ΛΙΣΤΑ ΕΞΕΤΑΖΟΜΕΝΩΝ ***\n");
+			for (int i = 0; i < Patient.myPatient.size(); i++) {
+				
+				String check = "";
+				if (Patient.myPatient.get(i).isInfected() == true) {
+					check = "ΘΕΤΙΚΟ";
+				} else {
+					check = "ΑΡΝΗΤΙΚΟ";
+				}
+				System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() + "\n"
+						+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
+						+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
+						+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
+						+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
+						+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear() + "\n");
 			}
-			System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() + "\n"
-					+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
-					+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
-					+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
-					+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
-					+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear() + "\n");
-			
 		}
 		
 	}
