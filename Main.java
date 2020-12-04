@@ -31,7 +31,7 @@ public static void main(String args[]) {
 			} else if (x == 2) {
 				Patient.addPatient();
 			} else if (x == 3) {
-				System.out.println("Soon to be added.\n");
+				Patient.printPatient();
 			} else if (x == 4) {
 				System.out.println( "(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα\n"
 						+ "(2) Στατιστικά ανά Ημέρα Επιλογής\n"
