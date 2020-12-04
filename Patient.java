@@ -141,7 +141,7 @@ public class Patient {
 		lastName = in.nextLine();
 		gender = "";
 		while (flag1 == false) {
-			System.out.print("Προσθέστε Φύλλο (Άντρας/Γυναίκα): ");
+			System.out.print("Προσθέστε Φύλλο (ΑΝΤΡΑΣ/ΓΥΝΑΙΚΑ): ");
 			gender = in.nextLine();
 			if (gender.equalsIgnoreCase("ΑΝΤΡΑΣ") || gender.equalsIgnoreCase("ΓΥΝΑΙΚΑ")) {
 				flag1 = true;
@@ -164,7 +164,7 @@ public class Patient {
 		phoneNumber = in.nextLine();
 		infected = true;
 		while (flag2 == false) {
-			System.out.print("Αποτέλεσμα Τεστ COVID-19 (Θετικό/Αρνητικό): ");
+			System.out.print("Αποτέλεσμα Τεστ COVID-19 (ΘΕΤΙΚΟ/ΑΡΝΗΤΙΚΟ): ");
 			infectedMes = in.nextLine();
 			if (infectedMes.equalsIgnoreCase("ΘΕΤΙΚΟ") || infectedMes.equalsIgnoreCase("ΑΡΝΗΤΙΚΟ")) {
 				flag2 = true;
@@ -220,10 +220,10 @@ public class Patient {
 					+ "ΠΕΛΟΠΟΝΝΗΣΟΣ - ΣΤΕΡΕΑ ΕΛΛΑΔΑ");
 			System.out.print("Εισάγετε Γεωγραφικό Διαμέρισμα: ");
 			myRegion = in.nextLine();
-			if (!(myRegion.equalsIgnoreCase("ΗΠΕΙΡΟΣ") && myRegion.equalsIgnoreCase("ΘΕΣΣΑΛΙΑ") ||
-					myRegion.equalsIgnoreCase("ΘΡΑΚΗ") && myRegion.equalsIgnoreCase("ΚΡΗΤΗ") ||
-					myRegion.equalsIgnoreCase("ΜΑΚΕΔΟΝΙΑ") && myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ") ||
-					myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΙΟΝΙΟΥ ΠΕΛΑΓΟΥΣ") && myRegion.equalsIgnoreCase("ΠΕΛΟΠΟΝΝΗΣΟΣ") ||
+			if (!(myRegion.equalsIgnoreCase("ΗΠΕΙΡΟΣ") || myRegion.equalsIgnoreCase("ΘΕΣΣΑΛΙΑ") ||
+					myRegion.equalsIgnoreCase("ΘΡΑΚΗ") || myRegion.equalsIgnoreCase("ΚΡΗΤΗ") ||
+					myRegion.equalsIgnoreCase("ΜΑΚΕΔΟΝΙΑ") || myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ") ||
+					myRegion.equalsIgnoreCase("ΝΗΣΟΙ ΙΟΝΙΟΥ ΠΕΛΑΓΟΥΣ") || myRegion.equalsIgnoreCase("ΠΕΛΟΠΟΝΝΗΣΟΣ") ||
 					myRegion.equalsIgnoreCase("ΣΤΕΡΕΑ ΕΛΛΑΔΑ"))) {
 				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
 			} else {
@@ -231,6 +231,31 @@ public class Patient {
 			}
 		}
 		return myRegion;
+		
+	}
+	
+	/**
+	 * This method prints all people tested for Covid-19.
+	 */
+	public static void printPatient() {
+		
+		System.out.println("*** ΛΙΣΤΑ ΕΞΕΤΑΖΟΜΕΝΩΝ ***\n");
+		for (int i = 0; i < Patient.myPatient.size(); i++) {
+			
+			String check = "";
+			if (Patient.myPatient.get(i).isInfected() == true) {
+				check = "ΘΕΤΙΚΟ";
+			} else {
+				check = "ΑΡΝΗΤΙΚΟ";
+			}
+			System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() + "\n"
+					+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
+					+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
+					+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
+					+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
+					+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear() + "\n");
+			
+		}
 		
 	}
 	
