@@ -300,7 +300,7 @@ public class Statistics {
 		
 		int countMale = 0, countFemale = 0, positiveMale = 0, positiveFemale = 0;
 		for (int i = 0; i < Patient.myPatient.size(); i++) {
-			if (Patient.myPatient.get(i).getGender().equalsIgnoreCase("ΑΝTΡΑΣ")) {
+			if (Patient.myPatient.get(i).getGender().equalsIgnoreCase("αντρας")) {
 				countMale++;
 				if (Patient.myPatient.get(i).isInfected() == true) {
 					positiveMale++;
