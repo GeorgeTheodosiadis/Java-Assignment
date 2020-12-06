@@ -15,7 +15,8 @@ public static void main(String args[]) {
 					+ "(2) Προσθήκη Eξεταζόμενου\n"
 					+ "(3) Εμφάνιση Λίστας Ατόμων\n"
 					+ "(4) Εύρεση Εξεταζόμενου\n"
-					+ "(5) Εμφάνιση Στατιστικών\n");
+					+ "(5) Αφαίρεση Εξεταζόμενου\n"
+					+ "(6) Εμφάνιση Στατιστικών\n");
 			int x = 0;
 			while (check1 == false) {
 				System.out.print("Εισάγετε επιλογή: ");
@@ -36,6 +37,8 @@ public static void main(String args[]) {
 			} else if (x == 4) {
 				Patient.findPatient(in);
 			} else if (x == 5) {
+				Patient.removePatient(in);
+			} else if (x == 6) {
 				System.out.println( "(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα\n"
 						+ "(2) Στατιστικά ανά Ημέρα Επιλογής\n"
 						+ "(3) Στατιστικά ανά Μήνα Επιλογής\n"
