@@ -11,17 +11,18 @@ import java.util.Scanner;
  * @author George Theodosiadis
  */
 public class Patient {
-	private String firstName, lastName, gender, region, email, phoneNumber;
+	private String firstName, lastName, gender, region, email, phoneNumber, nationalId;
 	private int age, covidTestDay, covidTestMonth, covidTestYear;
 	private boolean infected;
 	public static ArrayList<Patient> myPatient = new ArrayList<Patient>();
 	
-	public Patient(String firstName, String lastName, String gender, String region, String email, int age,
+	public Patient(String firstName, String lastName, String gender, String nationalId, String region, String email, int age,
 		       String phoneNumber, int covidTestDay, int covidTestMonth, int covidTestYear, boolean infected) {
 		myPatient.add(this);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
+		this.nationalId = nationalId;
 		this.region = region;
 		this.email = email;
 		this.age = age;
@@ -60,6 +61,14 @@ public class Patient {
 		this.gender = gender;
 	}
 
+	public String getNationalId() {
+		return nationalId;
+	}
+
+	public void setNationalId(String nationalId) {
+		this.nationalId = nationalId;
+	}
+	
 	public String getRegion() {
 		return region;
 	}
@@ -129,7 +138,7 @@ public class Patient {
 	 */
 	public static void addPatient() {
 		
-		String firstName, lastName, gender, region, email, phoneNumber, infectedMes;
+		String firstName, lastName, gender, region, email, phoneNumber, infectedMes, nationalId;
 		int age, covidTestDay, covidTestMonth, covidTestYear;
 		boolean infected, flag1 = false, flag2 = false;
 		
@@ -149,6 +158,8 @@ public class Patient {
 				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
 			}
 		}
+		System.out.print("Προσθέστε Αριρθμό Ταυτότητας: ");
+		nationalId = in.nextLine();
 		age = 0;
 		while (age <= 0) {
 			System.out.print("Προσθέστε με Αριθμητικό Χαρακτήρα την Ηλικία: ");
@@ -203,7 +214,7 @@ public class Patient {
 		}
 		System.out.println("\n*** Επιτυχής Καταχώρηση Στοιχείων ***\n");
 		
-		new Patient(firstName, lastName, gender, region, email, age, phoneNumber, covidTestDay,
+		new Patient(firstName, lastName, gender, nationalId, region, email, age, phoneNumber, covidTestDay,
 				covidTestMonth, covidTestYear, infected);
 
 	}
@@ -251,15 +262,127 @@ public class Patient {
 				} else {
 					check = "ΑΡΝΗΤΙΚΟ";
 				}
-				System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() + "\n"
+				System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() 
+						+ " (Αριθμός Ταυτότητας: " + Patient.myPatient.get(i).getNationalId().toUpperCase() + ")\n"
 						+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
 						+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
 						+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
 						+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
-						+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear() + "\n");
+						+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear());
+				if (Patient.myPatient.get(i).isInfected() == true) {
+					int [] newDate = checkDate(i);
+					System.out.println("Σε καραντίνα έως: " + newDate[0] + "/" + newDate[1] + "/" + newDate[2] + "\n");
+				} else {
+					System.out.println();
+				}
 			}
 		}
 		
+	}
+	
+	/**
+	 * This method finds a Patient after requesting the national id.
+	 */
+	public static void findPatient(Scanner in) {
+		
+		boolean flag = false;
+		System.out.print("Εισάγετε Αριθμό Ταυτότητας: ");
+		String id = in.nextLine();
+		System.out.println();
+		for (int i = 0; i < Patient.myPatient.size(); i++) {
+			if (Patient.myPatient.get(i).getNationalId().equalsIgnoreCase(id)) {
+				flag = true;
+				String check = "";
+				if (Patient.myPatient.get(i).isInfected() == true) {
+					check = "ΘΕΤΙΚΟ";
+				} else {
+					check = "ΑΡΝΗΤΙΚΟ";
+				}
+				System.out.println(Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() 
+						+ " (Αριθμός Ταυτότητας: " + Patient.myPatient.get(i).getNationalId().toUpperCase() + ")\n"
+						+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
+						+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
+						+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
+						+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
+						+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear());
+				if (Patient.myPatient.get(i).isInfected() == true) {
+					int [] newDate = checkDate(i);
+					System.out.println("Σε καραντίνα έως: " + newDate[0] + "/" + newDate[1] + "/" + newDate[2] + "\n");
+				} else {
+					System.out.println();
+				}
+			}
+		}
+		if (flag == false) {
+			System.out.println("Αδυναμία εύρεσης εξεταζόμενου.\n");
+		}
+		
+	}
+	
+	/**
+	 * This method returns an array of Integers with the day, month and year
+	 * the person tested positive can get out of quarantine.
+	 */
+	public static int[] checkDate(int i) {
+		int[] newDate = new int[3];
+		int dif;
+		int day = Patient.myPatient.get(i).getCovidTestDay();
+		int month = Patient.myPatient.get(i).getCovidTestMonth();
+		int year = Patient.myPatient.get(i).getCovidTestYear();
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+			if ((day + 14) > 31) {
+				dif = Math.abs(31 - (day + 14));
+				if (month == 12) {
+					newDate[2] = year + 1;
+					newDate[1] = 1;
+					newDate[0] = dif;
+				} else {
+					newDate[2] = year;
+					newDate[1] = month + 1;
+					newDate[0] = dif;
+				}	
+			} else {
+				newDate[2] = year;
+				newDate[1] = month;
+				newDate[0] = day + 14;
+			}
+		} else if (month == 2) {
+			 if (year == 2020 || year == 2024) {
+				if ((day + 14) > 29) {
+					dif = Math.abs(29 - (day + 14));
+					newDate[2] = year;
+					newDate[1] = month + 1;
+					newDate[0] = dif;	
+				} else {
+					newDate[2] = year;
+					newDate[1] = month;
+					newDate[0] = day + 14;
+				}
+			} else {
+				if ((day + 14) > 28) {
+					dif = Math.abs(28 - (day + 14));
+					newDate[2] = year;
+					newDate[1] = month + 1;
+					newDate[0] = dif;	
+				} else {
+					newDate[2] = year;
+					newDate[1] = month;
+					newDate[0] = day + 14;
+				}
+			}
+		} else {
+			if ((day + 14) > 30) {
+				dif = Math.abs(30 - (day + 14));
+				newDate[2] = year;
+				newDate[1] = month++;
+				newDate[0] = dif;	
+			} else {
+				newDate[2] = year;
+				newDate[1] = month;
+				newDate[0] = day + 14;
+			}
+		}
+		return newDate;
 	}
 	
 	/**
