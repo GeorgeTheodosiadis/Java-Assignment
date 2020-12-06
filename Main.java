@@ -21,7 +21,7 @@ public static void main(String args[]) {
 			while (check1 == false) {
 				System.out.print("Εισάγετε επιλογή: ");
 				x = intException();
-				if (x == 1 || x == 2 || x == 3 || x == 4 || x == 5) {
+				if (x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6) {
 					check1 = true;
 				} else {
 					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
