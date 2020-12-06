@@ -262,7 +262,7 @@ public class Patient {
 				} else {
 					check = "ΑΡΝΗΤΙΚΟ";
 				}
-				System.out.println(i + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() 
+				System.out.println((i + 1) + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() 
 						+ " (Αριθμός Ταυτότητας: " + Patient.myPatient.get(i).getNationalId().toUpperCase() + ")\n"
 						+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
 						+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
@@ -383,6 +383,25 @@ public class Patient {
 			}
 		}
 		return newDate;
+	}
+	
+	public static void removePatient(Scanner in) {
+		
+		boolean flag = false;
+		System.out.print("Εισάγετε Αριθμό Ταυτότητας: ");
+		String id = in.nextLine();
+		System.out.println();
+		for (int i = 0; i < Patient.myPatient.size(); i++) {
+			if (Patient.myPatient.get(i).getNationalId().equalsIgnoreCase(id)) {
+				Patient.myPatient.remove(i);
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			System.out.println("Αδυναμία εύρεσης εξεταζόμενου.\n");
+		} else {
+			System.out.println("Επιτυχής αφαίρεση εξεταζόμενου.\n");
+		}
 	}
 	
 	/**
