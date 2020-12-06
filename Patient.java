@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * This class is used to track the Patients that are tested for Covid-19
@@ -158,7 +161,7 @@ public class Patient {
 				System.out.println("Λανθασμένη καταχώρηση. Εισάγετε ξανά.");
 			}
 		}
-		System.out.print("Προσθέστε Αριρθμό Ταυτότητας: ");
+		System.out.print("Προσθέστε Αριθμό Ταυτότητας: ");
 		nationalId = in.nextLine();
 		age = 0;
 		while (age <= 0) {
@@ -212,7 +215,7 @@ public class Patient {
 				System.out.println("Λανθασμένη καταχώρηση έτους. Εισάγετε ξανά (2019-2025).");
 			}
 		}
-		System.out.println("\n*** Επιτυχής Καταχώρηση Στοιχείων ***\n");
+		System.out.println("\nΤα στοιχεία καταχωρήθηκαν επιτυχώς.\n");
 		
 		new Patient(firstName, lastName, gender, nationalId, region, email, age, phoneNumber, covidTestDay,
 				covidTestMonth, covidTestYear, infected);
@@ -276,6 +279,46 @@ public class Patient {
 					System.out.println();
 				}
 			}
+		}
+		
+	}
+	
+	public static void savePatients() {
+		
+		if (Patient.myPatient.size() > 0) {
+			File output = new File("Patients.txt");
+			FileWriter writer = null;
+			try { 
+				writer = new FileWriter(output);
+				for (int i = 0; i < Patient.myPatient.size(); i++) {
+					String check = "";
+					if (Patient.myPatient.get(i).isInfected() == true) {
+						check = "ΘΕΤΙΚΟ";
+					} else {
+						check = "ΑΡΝΗΤΙΚΟ";
+					}
+					writer.write(((i + 1) + ". " + Patient.myPatient.get(i).getFirstName().toUpperCase() + " " + Patient.myPatient.get(i).getLastName().toUpperCase() 
+							+ " (Αριθμός Ταυτότητας: " + Patient.myPatient.get(i).getNationalId().toUpperCase() + ")\n"
+							+ "Φύλο: " + Patient.myPatient.get(i).getGender().toUpperCase() + ", Ηλικία: " + Patient.myPatient.get(i).getAge() 
+							+ ", Γεωγραφικό Διαμέρισμα: " + Patient.myPatient.get(i).getRegion().toUpperCase() + "\n"
+							+ "Στοιχεία Επικοινωνίας: " + Patient.myPatient.get(i).getPhoneNumber() + " - " + Patient.myPatient.get(i).getEmail() + "\n"
+							+ "Τεστ: " + check + ", Ημερομηνία Τεστ: " +  Patient.myPatient.get(i).getCovidTestDay() + "/"
+							+ Patient.myPatient.get(i).getCovidTestMonth() + "/" + Patient.myPatient.get(i).getCovidTestYear() + "\n"));
+					if (Patient.myPatient.get(i).isInfected() == true) {
+						int [] newDate = checkDate(i);
+						writer.write("Σε καραντίνα έως: " + newDate[0] + "/" + newDate[1] + "/" + newDate[2] + "\n\n");
+					} else {
+						writer.write("\n");
+					}
+				}
+				writer.flush();
+				writer.close();
+				System.out.println("Τα δεδομένα αποθηκεύτηκαν επιτυχώς.\n");
+			} catch (IOException e) {
+				System.out.println("Ένα σφάλμα προέκυψε.\n");
+			}
+		} else {
+			System.out.println("Δεν έχουν καταγραφεί εξεταζόμενοι. Αδυναμία αποθήκευσης δεδομένων.\n");
 		}
 		
 	}
