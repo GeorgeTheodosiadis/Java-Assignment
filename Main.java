@@ -14,12 +14,13 @@ public static void main(String args[]) {
 			System.out.println( "(1) Εμφάνιση Eγχειριδίου Xρήσης\n"
 					+ "(2) Προσθήκη Eξεταζόμενου\n"
 					+ "(3) Εμφάνιση Λίστας Ατόμων\n"
-					+ "(4) Εμφάνιση Στατιστικών\n");
+					+ "(4) Εύρεση Εξεταζόμενου\n"
+					+ "(5) Εμφάνιση Στατιστικών\n");
 			int x = 0;
 			while (check1 == false) {
 				System.out.print("Εισάγετε επιλογή: ");
 				x = intException();
-				if (x == 1 || x == 2 || x == 3 || x == 4) {
+				if (x == 1 || x == 2 || x == 3 || x == 4 || x == 5) {
 					check1 = true;
 				} else {
 					System.out.println("Εισάγατε λανθασμένη επιλογή. Εισάγετε ξανά.\n");
@@ -33,6 +34,8 @@ public static void main(String args[]) {
 			} else if (x == 3) {
 				Patient.printPatient();
 			} else if (x == 4) {
+				Patient.findPatient(in);
+			} else if (x == 5) {
 				System.out.println( "(1) Στατιστικά ανά Γεωγραφικό Διαμέρισμα\n"
 						+ "(2) Στατιστικά ανά Ημέρα Επιλογής\n"
 						+ "(3) Στατιστικά ανά Μήνα Επιλογής\n"
