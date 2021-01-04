@@ -30,7 +30,7 @@ public static void main(String args[]) {
 			}
 			System.out.println();
 			if (x == 1) {
-				System.out.println("Soon to be added.\n");
+				Information.information();
 			} else if (x == 2) {
 				Patient.addPatient();
 			} else if (x == 3) {
