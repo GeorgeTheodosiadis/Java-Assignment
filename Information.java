@@ -1,3 +1,7 @@
+/**
+ * This class includes the method information that prints information
+ * regarding the use the program.
+ */
 public class Information {
 
 	public static void information() {
